@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela Técnica Sauce | Blog informativo – Gral. José Gervasio Artigas</title>
+<link rel="icon" href="https://gestioneducativa.utu.edu.uy/wp-content/uploads/2026/02/Isotipo-UTU-Color-Dorado-PNG.png" type="image/x-icon">
+  <meta name="description" content="Blog informativo de la Escuela Técnica Sauce (UTU Sauce) – Gral. José Gervasio Artigas. Historia, oferta educativa, fotos e información de la educación técnica en Sauce, Canelones, Uruguay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-dark: #001f3f;
+      --accent: #c8102e;
+      --accent-hover: #a00d24;
+      --light: #f5f7fa;
+      --white: #ffffff;
+      --text: #222;
+      --muted: #555;
+      --border: #e0e4ea;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--accent);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.35rem;
+      color: white;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffd700;
+      transition: width 0.25s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-notif {
+      background: var(--accent);
+      color: white !important;
+      padding: 0.55rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-notif:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,31,63,0.75), rgba(0,51,102,0.85)), url('utu-sauce.jpg') center/cover no-repeat;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-content h2 {
+      font-size: 2.6rem;
+      color: white;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 1.8rem;
+      opacity: 0.95;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* Main layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2.5rem;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+    }
+
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .card-body {
+      padding: 1.4rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    /* Blog posts */
+    .post {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .post:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .post h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post p {
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .read-more {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    /* Sidebar */
+    .sidebar .card {
+      position: sticky;
+      top: 90px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.95rem;
+    }
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+    .info-list strong {
+      color: var(--primary);
+      min-width: 90px;
+    }
+
+    /* Modal suscripción */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal h3 {
+      margin-bottom: 0.4rem;
+    }
+    .modal p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #888;
+      line-height: 1;
+    }
+    .close-modal:hover {
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover {
+      background: var(--accent-hover);
+    }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    .success-msg.show {
+      display: block;
+    }
+    .success-msg svg {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    footer h4 {
+      color: white;
+      margin-bottom: 0.9rem;
+      font-size: 1.05rem;
+    }
+    footer ul {
+      list-style: none;
+    }
+    footer li {
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.8);
+    }
+    footer a:hover {
+      color: #ffd700;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      cursor: zoom-out;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 92%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .sidebar .card {
+        position: static;
+      }
+      nav ul {
+        display: none;
+      }
+      .hero-content h2 {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-top {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .logo-text h1 {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f0fe, #f0f7ff);
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem 1.4rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.2rem 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f0fe;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="logo-text">
+          <h1>UTU Sauce</h1>
+          <span>Escuela Técnica “Gral. José Gervasio Artigas”</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#oferta">Oferta</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h2>Formando técnicos, construyendo futuro</h2>
+      <p>La Escuela Técnica de Sauce es un referente de la educación técnico-profesional en Canelones. Más de 40 años formando jóvenes y adultos con valores de gratuidad, laicidad e igualdad.</p>
+      <div class="hero-badges">
+        <span class="badge">📍 Sauce, Canelones</span>
+        <span class="badge">🎓 ANEP – UTU</span>
+        <span class="badge">👩‍🏫 Directora: María Cecilia Cotelo</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="grid-2">
+      <!-- Main content -->
+      <main>
+        <!-- Sobre la escuela -->
+        <section>
+          <h2 class="section-title">Sobre la Escuela</h2>
+          <div class="card">
+            <div class="card-body">
+              <p>La <strong>Escuela Técnica “Gral. José Gervasio Artigas”</strong> (conocida popularmente como <strong>UTU Sauce</strong>) forma parte de la Dirección General de Educación Técnico Profesional – UTU, integrada a la Administración Nacional de Educación Pública (ANEP).</p>
+              <p style="margin-top:0.9rem;">Ofrece educación técnica y tecnológica de nivel medio y formación profesional en un ambiente familiar y cercano a la comunidad de Sauce y localidades rurales aledañas.</p>
+              <p style="margin-top:0.9rem;">La institución cuenta con turnos matutino, vespertino y nocturno, atendiendo a una población estudiantil que supera los 500 alumnos entre Educación Media Básica y Educación Media Superior.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Historia -->
+        <section id="historia">
+          <h2 class="section-title">Historia</h2>
+          <div class="card">
+            <div class="card-body">
+              <p>La presencia de la educación técnica en Sauce se remonta a más de cuatro décadas. Durante aproximadamente 20 años funcionó como <strong>anexo de la Escuela Técnica de Canelones</strong>.</p>
+              
+              <p style="margin-top:0.9rem;">En <strong>agosto de 2004</strong> se inauguró el nuevo local de la Escuela Técnica Anexo Sauce, en un acto que contó con la presencia del entonces Presidente de la República, Jorge Batlle. El edificio, amplio y luminoso, contaba en ese momento con cuatro salones, aula de informática y cuatro talleres, albergando a 283 alumnos y 42 docentes.</p>
+
+              <p style="margin-top:0.9rem;">En 2025 la escuela celebró <strong>21 años</strong> como institución independiente bajo el nombre “Gral. José Gervasio Artigas”, aunque su trayectoria educativa en la comunidad supera los 40 años.</p>
+
+              <p style="margin-top:0.9rem;">Desde 2008, en el marco del mes de Artigas, se realiza un evento insignia de la escuela (catas y actividades comunitarias) que involucra a estudiantes de Gastronomía, Administración, Estética Personal y RUMBO, junto a familias, docentes, músicos y vecinos de Sauce.</p>
+
+              <div class="highlight-box" style="margin-top:1.2rem;">
+                <strong>Dato histórico:</strong> Sauce es la ciudad donde pasó parte de su niñez el prócer José Gervasio Artigas. La escuela lleva con orgullo su nombre y mantiene vivo el vínculo con la identidad local.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Oferta educativa -->
+        <section id="oferta">
+          <h2 class="section-title">Oferta Educativa</h2>
+          <div class="card">
+            <div class="card-body">
+              <p>La UTU Sauce ofrece una variedad de cursos de Educación Media Básica, Educación Media Profesional y formación profesional. Entre las orientaciones y cursos que se han dictado o se dictan se destacan:</p>
+              
+              <div style="margin:1.2rem 0;">
+                <span class="tag">Administración</span>
+                <span class="tag">Gastronomía / Cocina</span>
+                <span class="tag">Panadería y Repostería</span>
+                <span class="tag">Estética Personal / Belleza</span>
+                <span class="tag">Electrotecnia</span>
+                <span class="tag">Electricidad</span>
+                <span class="tag">Informática</span>
+                <span class="tag">Operador Informático</span>
+                <span class="tag">RUMBO</span>
+                <span class="tag">Ciclo Básico Tecnológico</span>
+                <span class="tag">Formación Profesional Básica</span>
+                <span class="tag">Guía Turístico</span>
+                <span class="tag">Conservación de Alimentos</span>
+              </div>
+
+              <p>Los estudiantes de Administración han desarrollado emprendimientos reales (como el proyecto de terrarios “Warden”), participando en concursos de DESEM Junior Achievement y obteniendo destacados resultados a nivel nacional.</p>
+
+              <p style="margin-top:0.9rem;">El Laboratorio de Informática también brinda servicios a la comunidad (reparación de equipos).</p>
+
+              <p style="margin-top:0.9rem; font-size:0.95rem; color:var(--muted);"><em>Para la oferta actualizada del año lectivo vigente, consultá la Agenda Web de UTU o comunicate directamente con la escuela.</em></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Galería -->
+        <section id="galeria">
+          <h2 class="section-title">Galería de Imágenes</h2>
+          <p style="margin-bottom:1rem; color:var(--muted);">Instalaciones de la Escuela Técnica Sauce. Hacé clic en cualquier foto para ampliarla.</p>
+          <div class="gallery">
+            <img src="https://www.sauceciudad.com/wp-content/uploads/2021/03/utu-sauce.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLB5xSYqZQhpe7fVCMW69PUyssZOf1KLjQecwj05M20NoU4Z9r9Ke9mXKd&s=10">
+            <img src="https://saucedigital.blogia.com/upload/20110223232346-us.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfmD9krhywtZnx1hVmiIDtC58QGdPk_x3DnftsinoCCITbWXYlF-dhfRE&s=10">
+          </div>
+        </section>
+
+        <!-- Noticias / Blog -->
+        <section id="noticias">
+          <h2 class="section-title">Noticias y Actualidad</h2>
+          
+          <div class="card">
+            <div class="card-body">
+              <article class="post">
+                <div class="post-meta">📰 Septiembre 2025 · Emprendimiento estudiantil</div>
+                <h3>Estudiantes de Administración crearon terrarios y agotaron stock</h3>
+                <p>El grupo de segundo año de Administración elaboró más de 140 terrarios con vidrio reutilizado bajo el nombre “Warden”. Diseñaron logo, se organizaron en áreas de marketing, finanzas y RR.HH., y participaron del concurso DESEM Junior Achievement, quedando en segundo lugar a nivel nacional. Incluso recibieron la visita de la Vicepresidenta Carolina Cosse.</p>
+                <a href="https://hoycanelones.com.uy/?p=65314" target="_blank" rel="noopener" class="read-more">Leer más →</a>
+              </article>
+
+              <article class="post">
+                <div class="post-meta">📰 Junio 2025 · Aniversario</div>
+                <h3>21 años como Escuela Técnica independiente</h3>
+                <p>La directora Prof. María Cecilia Cotelo destacó que, aunque la escuela lleva 21 años con su actual denominación, viene ofreciendo cursos en la comunidad desde hace más de 40 años. El evento anual de catas y celebraciones en el mes de Artigas sigue siendo el momento más esperado por estudiantes, familias y vecinos.</p>
+              </article>
+
+              <article class="post">
+                <div class="post-meta">📰 Actualidad · Servicio a la comunidad</div>
+                <h3>Laboratorio de Informática: dejá tu equipo para reparar</h3>
+                <p>La escuela mantiene abierto el servicio de reparación de equipos informáticos a través de su Laboratorio de Informática, reforzando el vínculo con la comunidad de Sauce.</p>
+              </article>
+
+              <article class="post">
+                <div class="post-meta">📰 Agosto 2004 · Inauguración</div>
+                <h3>Inauguración del nuevo local con presencia del Presidente Batlle</h3>
+                <p>El 27 de agosto de 2004 se inauguró el edificio actual de la entonces Escuela Técnica Anexo Sauce. En ese momento ya funcionaban 13 cursos diferentes y se destacaba la creciente demanda de educación técnica en el país.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div class="card-header">📍 Datos de contacto</div>
+          <div class="card-body">
+            <ul class="info-list">
+              <li><strong>Nombre</strong> Escuela Técnica “Gral. José Gervasio Artigas”</li>
+              <li><strong>Ubicación</strong> Francisca Pascual de Artigas s/n esq. Santa Isabel, Sauce, Canelones</li>
+              <li><strong>Teléfonos</strong> 2294 1208<br>2294 0130</li>
+              <li><strong>Email</strong> <a href="mailto:escuelatecnicasauce@gmail.com">escuelatecnicasauce@gmail.com</a></li>
+              <li><strong>Directora</strong> María Cecilia Cotelo</li>
+              <li><strong>Redes</strong> 
+                  <a href="https://www.instagram.com/escuela.tecnica.sauce/?hl=es-la" target="_blank" rel="noopener">Instagram</a> · 
+                  <a href="https://www.facebook.com/p/Escuela-T%C3%A9cnica-Sauce-100092463053918/" target="_blank" rel="noopener">Facebook</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">🔗 Enlaces útiles</div>
+          <div class="card-body">
+            <ul class="info-list">
+              <li><a href="https://www.utu.edu.uy/escuela-tecnica-gral-jose-gervasio-artigas-sauce/" target="_blank" rel="noopener">Página oficial UTU</a></li>
+              <li><a href="https://www.utu.edu.uy/" target="_blank" rel="noopener">Sitio web UTU</a></li>
+              <li><a href="https://www.utu.edu.uy/estudia/" target="_blank" rel="noopener">Estudiá en UTU</a></li>
+              <li><a href="https://www.instagram.com/escuela.tecnica.sauce/?hl=es-la" target="_blank" rel="noopener">Instagram oficial</a></li>
+              <li><a href="https://www.facebook.com/p/Escuela-T%C3%A9cnica-Sauce-100092463053918/" target="_blank" rel="noopener">Facebook oficial</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-content">
+      <div>
+        <h4>Escuela Técnica Sauce</h4>
+        <p style="font-size:0.92rem; line-height:1.5;">“Gral. José Gervasio Artigas”<br>Educación técnica pública, gratuita y de calidad en Sauce, Canelones.</p>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="https://www.utu.edu.uy/" target="_blank" rel="noopener">Universidad del Trabajo del Uruguay</a></li>
+          <li><a href="https://www.anep.edu.uy/" target="_blank" rel="noopener">ANEP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Redes sociales</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/escuela.tecnica.sauce/?hl=es-la" target="_blank" rel="noopener">Instagram @escuela.tecnica.sauce</a></li>
+          <li><a href="https://www.facebook.com/p/Escuela-T%C3%A9cnica-Sauce-100092463053918/" target="_blank" rel="noopener">Facebook Escuela Técnica Sauce</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Escuela Técnica Sauce · “Gral. José Gervasio Artigas” · Todos los derechos reservados
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Imagen ampliada">
+  </div>
+
+  <script>
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Smooth scroll para los enlaces del menú
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
